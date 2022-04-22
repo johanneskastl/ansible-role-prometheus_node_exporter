@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: 'prometheus_node_exporter'
+  namespace: 'johanneskastl'
   author: 'Johannes Kastl'
   description: 'Install and start the Prometheus node_exporter'
   company: 'B1 Systems GmbH'
