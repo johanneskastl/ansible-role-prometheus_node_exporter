@@ -2,15 +2,15 @@
 # prometheus_node_exporter/tasks/main.yml
 
 - name: 'Populate the package name variable depending on the OS'
-  include: package_name.yml
+  ansible.builtin.include: package_name.yml
 
 - name: 'Install the package'
-  package:
+  ansible.builtin.package:
     name: "{{ node_exporter_package_name }}"
     state: 'present'
 
 - name: 'Start and enable the service'
-  service:
+  ansible.builtin.service:
     name: 'prometheus-node_exporter.service'
     state: 'started'
     enabled: 'true'
