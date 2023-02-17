@@ -12,3 +12,9 @@
     node_exporter_package_name: 'golang-github-prometheus-node_exporter'
   when:
     - 'ansible_os_family == "openSUSE MicroOS"'
+
+- name: 'Set package name on openSUSE Leap Micro'
+  ansible.builtin.set_fact:
+    node_exporter_package_name: 'golang-github-prometheus-node_exporter'
+  when:
+    - 'ansible_os_family == "openSUSE Leap Micro"'
