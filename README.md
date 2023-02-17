@@ -25,7 +25,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-        - { role: 'johanneskastl.prometheus_node_exporter' }
+        - role: 'johanneskastl.prometheus_node_exporter'
 
 License
 -------
