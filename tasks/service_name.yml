@@ -18,3 +18,9 @@
     node_exporter_service_name: 'prometheus-node_exporter.service'
   when:
     - 'ansible_os_family == "openSUSE Leap Micro"'
+
+- name: 'Set service name on Debian'
+  ansible.builtin.set_fact:
+    node_exporter_service_name: 'prometheus-node-exporter'
+  when:
+    - 'ansible_distribution == "Debian"'
