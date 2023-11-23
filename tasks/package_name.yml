@@ -18,3 +18,9 @@
     node_exporter_package_name: 'golang-github-prometheus-node_exporter'
   when:
     - 'ansible_os_family == "openSUSE Leap Micro"'
+
+- name: 'Set package name on Debian'
+  ansible.builtin.set_fact:
+    node_exporter_package_name: 'prometheus-node-exporter'
+  when:
+    - 'ansible_distribution == "Debian"'
