@@ -11,6 +11,22 @@
   ansible.builtin.package:
     name: "{{ node_exporter_package_name }}"
     state: 'present'
+  when:
+    - 'ansible_distribution != "openSUSE MicroOS"'
+    - 'ansible_distribution != "openSUSE Leap Micro"'
+
+- name: "Install the package on openSUSE MicroOS / openSUSE Leap Micro with a reboot"
+  community.general.zypper:
+    name: "{{ node_exporter_package_name }}"
+    state: 'present'
+  when:
+    - '
+      ansible_distribution == "openSUSE MicroOS"
+      or ansible_distribution == "openSUSE Leap Micro"
+      '
+  notify:
+    - 'Reboot'
+    - 'Wait for the machine(s) to be ready again'
 
 - name: 'Start and enable the service'
   ansible.builtin.service:
